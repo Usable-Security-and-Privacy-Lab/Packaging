@@ -17,7 +17,7 @@ Summary:        Kernel module(s)
 Group:          System Environment/Kernel
 
 License:        Public Domain
-URL:            test
+URL:            https://github.com/Usable-Security-and-Privacy-Lab/ssa.git
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  %{_bindir}/kmodtool
 
