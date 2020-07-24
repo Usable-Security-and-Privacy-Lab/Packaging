@@ -48,7 +48,7 @@ cp -r %{_builddir}/%{_usrsrc}/ssa-daemon/* %{buildroot}/%{_usrsrc}/ssa-daemon-%{
 cd /usr/src/ssa-daemon-%{version}/
 
 chmod +x /usr/src/ssa-daemon-%{version}/tls_wrapper
-sudo sh -c "printf \"[Unit]After=network-online.target\n\n[Service]\nExecStart=/bin/bash -c 'cd /usr/src/ssa-daemon-%{version} && PATH=/usr/src/ssa-daemon-%{version}:/usr/bin/ssa-daemon-%{version}/test_files:/usr/bin/ssa-${version}:$PATH exec ./tls_wrapper'\n\n[Install]\nWantedBy=network-online.target\n\n\" > /etc/systemd/system/ssa-daemon.service"
+sudo sh -c "printf \"[Unit]After=network-online.target\n\n[Service]\nExecStart=/bin/bash -c 'cd /usr/src/ssa-daemon-%{version} && PATH=/usr/src/ssa-daemon-%{version}:/usr/bin/ssa-daemon-%{version}/test_files:/usr/bin/ssa-${version}:$PATH exec ./ssa_daemon'\n\n[Install]\nWantedBy=network-online.target\n\n\" > /etc/systemd/system/ssa-daemon.service"
 systemctl daemon-reload
 systemctl enable ssa-daemon.service
 systemctl start ssa-daemon.service
