@@ -1,11 +1,10 @@
-#### How to install the ssa kernel module and ssa-daemon on fedora
+## How to install the ssa kernel module and ssa-daemon on fedora
 ## Install Kernel module
-1. Make sure the package manager is up to date and reboot
-    sudo yum update
-    reboot
+1. Make sure the package manager is up to date and reboot.   
+    sudo yum update.  
+    reboot. 
 
-2. Install kernel module
-#### Add private repo to be recognized by your computer
+# Add private repo to be recognized by your computer
 curl https://github.com/Usable-Security-and-Privacy-Lab/fedora-packaging/ssa.repo > /etc/yum.repos.d/ssa.repo
 Note: .repo says to disable official repositories, as of fedora 32 you can disable the first part of the files in fedora.repo and fedora-updates.repo and it should be fine. You can reenable them after installation. Disabling helps to verify that the repo is working with availability lists
 
@@ -16,7 +15,7 @@ there should be two packages listed from ssa called ssa-daemon and ssa-kmod
 Make sure everythings updated
 yum check-update ssa-kmod --refresh TODO:verify command
 
-
+## Install Kernel module
 sudo yum install ssa-kmod-`uname -r` (or akmod-ssa if we don't have the kmod for that version)
 NOTE: 'uname' is automatically replaced by the computer with distribution info
 
@@ -27,8 +26,6 @@ systemctl enable ssa-daemon.service
  systemctl start ssa-daemon.service
  can verify by running
  systemctl status ssa-daemon.service
-
-
 
 It will ask for authentification to run daemon
 
