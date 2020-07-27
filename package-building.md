@@ -77,7 +77,7 @@ https://www.rpmfind.net/linux/rpm2html/search.php?query=kernel-devel-uname-r
 Install the latest buildsys-build-rpmfusion-kerneldevpkgs-current with the corresponding kernel-debug-devel and buildsys-build that it requires.
 OR - build the akmod version (uncomment which one you want with ssa-kmod.spec)
 
-4.
+5.
 Update the repo
 sudo createrepo /var/www/html/fedora/
 
