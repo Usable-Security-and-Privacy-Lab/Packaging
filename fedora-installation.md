@@ -1,31 +1,32 @@
-#How to install the ssa kernel module and ssa-daemon on fedora
-##Install Kernel module
+#### How to install the ssa kernel module and ssa-daemon on fedora
+## Install Kernel module
 1. Make sure the package manager is up to date and reboot
     sudo yum update
     reboot
 
 2. Install kernel module
+#### Add private repo to be recognized by your computer
+curl https://github.com/Usable-Security-and-Privacy-Lab/fedora-packaging/ssa.repo > /etc/yum.repos.d/ssa.repo
+Note: .repo says to disable official repositories, as of fedora 32 you can disable the first part of the files in fedora.repo and fedora-updates.repo and it should be fine. You can reenable them after installation. Disabling helps to verify that the repo is working with availability lists
 
-curl http://(your local ip)/fedora/ssa.repo > /etc/yum.repos.d/ssa.repo
-Note: .repo says to disable official repositories, as of fedora 32 you can disable the first part of the files in fedora.repo and fedora-updates.repo and it should be fine. You can reenable them after installation. Disabling helps to verify that the repo is working with
+You can verify that this worked by running
 sudo dnf list available
 there should be two packages listed from ssa called ssa-daemon and ssa-kmod
-TODO: instructions for akmods?
-//alternate
-curl https://github.com/brightcandlelight/fedora-packaging/ssa.repo > /etc/yum.repos.d/ssa.repo
-//end alternate
 
-yum check-update ssa --refresh
-#
+Make sure everythings updated
+yum check-update ssa-kmod --refresh TODO:verify command
+
 
 sudo yum install ssa-kmod-`uname -r` (or akmod-ssa if we don't have the kmod for that version)
 NOTE: 'uname' is automatically replaced by the computer with distribution info
+
+## Install daemon
 sudo yum install ssa-daemon
 systemctl enable ssa-daemon.service
-#To start daemon, Use:
+##### To start daemon, Use:
  systemctl start ssa-daemon.service
  can verify by running
-systemctl status ssa-daemon.service
+ systemctl status ssa-daemon.service
 
 
 
@@ -34,11 +35,8 @@ It will ask for authentification to run daemon
  if the ssa kernel module isn't properly installed, you'll get a message something like this
   Loaded: error (Reason: Unit ssa-daemon.service failed to load properly: Bad message.)
 
-QUESTION: what should status say?  TODO: write down what it looks like when it's working
-#If you upgrade to a new kernel version and have installed kmod instead of akmod you will need to install the newest ssa and potentially also ssa-daemon.
 
-
-#Resources
+# Resources
 
 How to find your IP address
 https://www.techwalla.com/articles/how-to-find-an-ip-address-in-fedora
