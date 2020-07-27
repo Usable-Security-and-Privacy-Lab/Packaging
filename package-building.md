@@ -55,7 +55,7 @@ eg
 sudo dnf install kernel-devel-`uname -r` kernel-headers-`uname -r`
 sudo yum install avahi-devel elfutils-libelf-devel glib-devel gtk3-devel libconfig libconfig-devel libevent-devel libnl3-devel libnotify-devel openssl-devel elfutils-libelf-devel qrencode fedpkg libyaml-devel
 
-# Note: If the kernel-devel command failed, try this one instead
+Note: If the kernel-devel command failed, try this one instead    
 kernel=`uname -r | sed 's/-/\//' | sed 's/\(.*\)\./\1\//'`
 sudo yum install https://kojipkgs.fedoraproject.org//packages/kernel/${kernel}/kernel-devel-`uname -r`.rpm
 
