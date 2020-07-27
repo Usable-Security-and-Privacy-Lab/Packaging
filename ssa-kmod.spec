@@ -3,7 +3,7 @@
 #define buildforkernels current
 %define buildforkernels akmod
 
-%define module ssa
+%define module ssa-kmod
 %define version 1
 %define repo rpmfusion
 
@@ -80,7 +80,7 @@ done
 %post
 sudo echo "Entering post install"
 sudo depmod -a
-sudo modprobe ssa
+sudo modprobe ssa-kmod
 sudo sh -c "printf \"# Load ssa.ko at boot\nssa\" > /etc/modules-load.d/ssa.conf"
 
 %preun
