@@ -16,8 +16,8 @@ Make sure everythings updated
 yum check-update ssa-kmod --refresh TODO:verify command
 
 ## Install Kernel module
-sudo yum install ssa-kmod-`uname -r` (or akmod-ssa if we don't have the kmod for that version)
-NOTE: 'uname' is automatically replaced by the computer with distribution info
+sudo yum install ssa-kmod-`uname -r` (or akmod-ssa if we don't have the kmod for that version).   
+NOTE: 'uname' is automatically replaced by the computer with distribution info.   
 
 ## Install daemon
 sudo yum install ssa-daemon. 
