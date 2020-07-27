@@ -23,9 +23,9 @@ NOTE: 'uname' is automatically replaced by the computer with distribution info
 sudo yum install ssa-daemon. 
 systemctl enable ssa-daemon.service. 
 ##### To start daemon, Use:
- systemctl start ssa-daemon.service. 
- can verify by running. 
- systemctl status ssa-daemon.service. 
+ systemctl start ssa-daemon.service.   
+ can verify by running.   
+ systemctl status ssa-daemon.service.    
 
 It will ask for authentification to run daemon. 
 
