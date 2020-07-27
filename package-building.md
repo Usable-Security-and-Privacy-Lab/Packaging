@@ -95,4 +95,10 @@ Also note on general plan for fedora packaging There are three ways to provide s
 2. Set up private repository that anyone can access with public key
 3. Get set up in fedora public repositories( a lot of work)
 
-We are adding support for the second option
+We are adding support for the second option    
+
+Here is a guide for .target files that you need to know of you ever have to debug network-online.target
+https://www.freedesktop.org/software/systemd/man/systemd.target.html
+
+General overview of writing Fedora packages
+https://docs.fedoraproject.org/en-US/quick-docs/creating-rpm-packages/
