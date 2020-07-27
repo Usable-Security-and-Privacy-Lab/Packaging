@@ -13,11 +13,11 @@ sudo dnf update
 
 1.If you have upgraded your kernel, you will need to make sure your kmodtool has the modification(what modification?). It may have gotten overridden by the kernel update. Edit /usr/bin/kmodtool and make sure it has these lines. (you may need to do a "yum install kmodtool" first). use sudo vim(or another text editor) to write to a readonly file
 
-%if 0%{?rhel} (This doesn't exist, what's the purpose of this mod?)
+%if 0%{?rhel}.       
 ...
 %else
 %post -n kmod-${kmodname}-${kernel_uname_r}
-/usr/sbin/depmod -aeF /boot/System.map-4.18.16-300.fc29.x86_64 4.18.16-300.fc29.x86_64 > /dev/null || :
+/usr/sbin/depmod -aeF /boot/System.map-4.18.16-300.fc29.x86_64 4.18.16-300.fc29.x86_64 > /dev/null || : 
 
 #Start change
 sudo echo "  Entering post install"
@@ -82,7 +82,7 @@ Update the repo
 sudo createrepo /var/www/html/fedora/
 
 
-#Resources
+# Resources
 
 This is a helpful guide for working with kernel modules in fedora
  https://docs.fedoraproject.org/en-US/fedora/rawhide/system-administrators-guide/kernel-module-driver-configuration/Working_with_Kernel_Modules/
