@@ -1,0 +1,9 @@
+#!bin/bash
+yum install createrepo httpd
+sudo mkdir -p /var/www/html/fedora
+sudo createrepo /var/www/html/fedora/
+systemctl enable httpd.service
+systemctl start httpd.service
+#allows computer to receive http requests
+firewall-cmd --permanent --add-service=http
+firewall-cmd --add-service=http
