@@ -47,6 +47,16 @@ cp -r %{_builddir}/%{_usrsrc}/ssa-daemon/* %{buildroot}/%{_usrsrc}/ssa-daemon-%{
 %post
 cd /usr/src/ssa-daemon-%{version}/
 
+git clone https://github.com/Usable-Security-and-Privacy-Lab/ssa.git
+cd ssa
+make
+sudo cp ssa.ko /lib/modules/`uname -r`
+sudo depmod -a
+sudo modprobe ssa
+sudo sh -c "printf \"# Load ssa.ko at boot\nssa\" > /etc/modules-load.d/ssa.conf"
+cd ..
+rm -r ssa
+
 chmod +x /usr/src/ssa-daemon-%{version}/ssa_daemon
 sudo sh -c "printf \"[Unit]\nAfter=network-online.target\n\n[Service]\nExecStart=/bin/bash -c 'cd /usr/src/ssa-daemon-%{version} && PATH=/usr/src/ssa-daemon-%{version}:/usr/bin/ssa-daemon-%{version}/test_files:/usr/bin/ssa-${version}:$PATH exec ./ssa_daemon'\n\n[Install]\nWantedBy=network-online.target\n\n\" > /etc/systemd/system/ssa-daemon.service"
 systemctl daemon-reload
@@ -55,6 +65,10 @@ systemctl start ssa-daemon.service
 
 %preun
 echo -e "Uninstall of %{module} (version %{version}) beginning:"
+
+sudo rm /lib/modules/`uname -r`/ssa.ko
+sudo modprobe -r ssa
+sudo rm -f /etc/modules-load.d/ssa.conf
 
 systemctl stop ssa-daemon.service
 systemctl disable ssa-daemon.service
