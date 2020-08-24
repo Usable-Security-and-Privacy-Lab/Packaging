@@ -1,0 +1,7 @@
+#!/usr/bin/make -f
+VERSION=0.16
+%:
+	dh $@
+override_auto_install:
+	mkdir -p /usr/src/ssa-daemon
+	dh_install

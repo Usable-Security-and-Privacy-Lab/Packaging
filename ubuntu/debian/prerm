@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+sudo rm /lib/modules/`uname -r`/ssa.ko
+sudo modprobe -r ssa
+sudo rm -f /etc/modules-load.d/ssa.conf
+sudo rm -r /usr/src/ssa-daemon
+sudo systemctl stop ssa-daemon.service
+sudo systemctl disable ssa-daemon.service
+sudo rm -f /etc/systemd/system/ssa-daemon.service
+#DEBHELPER#
+exit 0

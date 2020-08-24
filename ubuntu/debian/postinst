@@ -1,0 +1,19 @@
+#!/bin/sh
+
+git clone https://github.com/Usable-Security-and-Privacy-Lab/ssa.git
+cd ssa
+make 
+sudo cp ssa.ko /lib/modules/`uname -r`
+sudo depmod -a
+sudo modprobe ssa
+sudo sh -c "printf \"#Load ssa.ko at boot\nssa\" > /etc/modules-load.d/ssa.conf"
+cd ..
+
+sudo sh -c "printf \"[Unit]\nAfter=network-online.target\n\n[Service]\nExecStart=/bin/bash -c 'cd /usr/src/ssa-daemon && PATH=/usr/src/ssa-daemon:$PATH exec ./ssa_daemon'\n\n[Install]\nWantedBy=network-online.target\n\n\" > /etc/systemd/system/ssa-daemon.service"
+sudo systemctl daemon-reload
+sudo systemctl enable ssa-daemon.service
+sudo systemctl start ssa-daemon.service
+#Cleanup(do last)
+sudo rm -r ssa
+#DEBHELPER#
+exit 0
