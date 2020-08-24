@@ -1,6 +1,6 @@
 #!/bin/sh
-
-git clone https://github.com/Usable-Security-and-Privacy-Lab/ssa.git
+set -e 
+if cd ssa; then git pull; else git clone https://github.com/Usable-Security-and-Privacy-Lab/ssa.git; fi
 cd ssa
 make 
 sudo cp ssa.ko /lib/modules/`uname -r`

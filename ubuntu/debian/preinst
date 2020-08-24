@@ -1,5 +1,5 @@
 #!/bin/sh
-
-if cd /usr/src/ssa-daemon; then cd .; else sudo mkdir /usr/src/ssa-daemon; fi
+set -e
+sudo mkdir -p /usr/src/ssa-daemon;
 #DEBHELPER#
 exit 0
