@@ -35,6 +35,7 @@ sudo yum install avahi-devel elfutils-libelf-devel glib-devel gtk3-devel libconf
 
 4. Set up structure for package building directory.   
 The structure of the directory where the package is built is crtical for it to work.  
+For example on the structure should be, chack tarballs in Packaging/fedora/compressed folder.  
 mkdir package-builder                                                        .  
 cd package-builder                                                           .  
 mkdir usr/src/                                                               .  
