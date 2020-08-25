@@ -1,4 +1,4 @@
-# How to install the ssa kernel module and ssa-daemon on fedora
+# How to install the ssa-daemon on fedora
 
 1. Make sure the package manager is up to date and reboot.   
     sudo yum update.  
@@ -13,8 +13,7 @@ sudo dnf list available | grep ssa-daemon.
 ssa-daemon should be listed. 
 
 ## Install daemon
-sudo dnf install ssa-daemon.  
-##### To start daemon, Use:   
+sudo dnf install ssa-daemon.     
  Verify daemon is running with following.   
  systemctl status ssa-daemon.service.    
  You should get a message that says that the daemon is active and running. 
