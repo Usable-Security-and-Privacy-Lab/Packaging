@@ -85,10 +85,10 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
     ### Aliases to help with building the packages.
     - On the lab machine, there are aliases and bash functions to help with packaging.
         - pushDaemon takes a version number and then calls dput with the correct name and repo already filled in.
-	- buildPackage/buildBinary can be used to run the bzr builddeb commands.
-	- makedh runs the dh_make command with the email and other arguments already filled in.
-	- testInstall takes a verion number and will install the .deb file for you if you are in the directory where the .deb is located.
-	- newdaemon takes a version number and creates a new package for you, it also sets up some of the debian folder for you as well.
+        - buildPackage/buildBinary can be used to run the bzr builddeb commands.
+        - makedh runs the dh_make command with the email and other arguments already filled in.
+        - testInstall takes a verion number and will install the .deb file for you if you are in the directory where the .deb is located.
+        - newdaemon takes a version number and creates a new package for you, it also sets up some of the debian folder for you as well.
     - Once the package has been pushed to launchpad, you will get an email informing you if it was accepted/rejected and once the build has been published, you can run:
     `sudo add-apt-repository ppa:byu-ilab/ssa-daemon; sudo apt-get update` to add the repo to apt and then run `sudo apt install ssadaemon` to install the latest version of the software.
     
