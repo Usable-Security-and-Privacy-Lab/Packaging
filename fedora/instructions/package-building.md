@@ -17,7 +17,7 @@ sudo rm /lib/modules/`uname -r`/ssa.ko  .
 sudo modprobe -r                        .  
 sudo rm -f /etc/modules-load.d/ssa.conf .  
 
-2.How to create repository to store packages(rpm files) 
+2. How to create repository to store packages(rpm files) 
 
 yum install createrepo httpd                 .  
 mkdir -p /var/www/html/fedora                .  
