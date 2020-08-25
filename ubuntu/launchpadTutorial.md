@@ -1,6 +1,6 @@
 # Ubuntu Launchpad Tutorial
 
-##System Configuration:
+## System Configuration:
 
 - First, create an Ubuntu one account: [Launchpad](https://login.launchpad.net/)
 To login to launchapd visit: <https://login.launchpad.net/>
@@ -46,7 +46,7 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
 
 - install dh-make bzr-builddeb `sudo apt-get install dh-make bzr-builddeb`
 
-##Project packaging
+## Project packaging
 
 - When working on a package, you will want to make sure you have the newest version of the project from github by pulling from master, then you will copy the source to a new directory.
     - once you are in the new directory with the copies source files, run `dh_make --single --native --email internetresearchlab@internet.byu.edu` (Or on the Ubuntu lab machine, `makedh`)
@@ -82,7 +82,7 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
     - If the package builds successfully, you can try testing the .deb package before pushing it to Launchpad by executing `sudo dpkg -i ~/ppasrc/ssadaemon_"$1"_amd64.deb` where "$1" is the version of the package you want to install.
     - To test the removal of the package, you can run the regular apt remove command to remove the .deb package from your system.
     - When you are ready to push to launchpad, you need to be in directory that has the version source.changes file. Then execute `dput ppa:byu-ilab/ssa-daemon ssadaemon_"$1"_source.changes`
-    ###Aliases to help with building the packages.
+    ### Aliases to help with building the packages.
     - On the lab machine, there are aliases and bash functions to help with packaging.
         - pushDaemon takes a version number and then calls dput with the correct name and repo already filled in.
 	- buildPackage/buildBinary can be used to run the bzr builddeb commands.
@@ -92,7 +92,7 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
     - Once the package has been pushed to launchpad, you will get an email informing you if it was accepted/rejected and once the build has been published, you can run:
     `sudo add-apt-repository ppa:byu-ilab/ssa-daemon; sudo apt-get update` to add the repo to apt and then run `sudo apt install ssadaemon` to install the latest version of the software.
     
-##Other tutorials
+## Other tutorials
 
 <https://packaging.ubuntu.com/html/debian-dir-overview.html> explains about packaging files.
 This is how to have multiple dependencies:
