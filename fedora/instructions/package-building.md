@@ -25,11 +25,7 @@ systemctl enable httpd.service               .
 systemctl start httpd.service                .  
 firewall-cmd --permanent --add-service=http  .  
 firewall-cmd --add-service=http              .  
-
-Also download the following pieces:                                                                   .
-git clone https://github.com/Usable-Security-and-Privacy-Lab/Packaging.git                            .  
-cd Packaging/fedora/spec                                                                              .
-cp ssa.repo /var/www/html/fedora (update the ip address to where repository is located in ssa.repo)   .  
+ 
 
 3. Install dependencies
 If this is the first time, you may need to do a yum install for any missing dependencies              .   
@@ -39,7 +35,6 @@ sudo yum install avahi-devel elfutils-libelf-devel glib-devel gtk3-devel libconf
 
 4. Set up structure for package building directory.   
 The structure of the directory where the package is built is crtical for it to work.  
-
 mkdir package-builder                                                        .  
 cd package-builder                                                           .  
 mkdir usr/src/                                                               .  
