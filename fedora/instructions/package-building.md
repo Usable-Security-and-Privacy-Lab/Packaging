@@ -18,7 +18,6 @@ sudo modprobe -r                        .
 sudo rm -f /etc/modules-load.d/ssa.conf .  
 
 2. How to create repository to store packages(rpm files) 
-
 yum install createrepo httpd                 .  
 mkdir -p /var/www/html/fedora                .  
 sudo createrepo /var/www/html/fedora/        .  
@@ -32,14 +31,13 @@ git clone https://github.com/Usable-Security-and-Privacy-Lab/Packaging.git      
 cd Packaging/fedora/spec                                                                              .
 cp ssa.repo /var/www/html/fedora (update the ip address to where repository is located in ssa.repo)   .  
 
-3.
+3. Install dependencies
 If this is the first time, you may need to do a yum install for any missing dependencies              .   
 eg                                                                                                    .   
 sudo dnf install kernel-devel-`uname -r` kernel-headers-`uname -r`                                    .   
 sudo yum install avahi-devel elfutils-libelf-devel glib-devel gtk3-devel libconfig libconfig-devel libevent-devel libnl3-devel libnotify-devel openssl-devel elfutils-libelf-devel qrencode fedpkg libyaml-devel  .          
 
-4.
-Set up structure for package building directory.   
+4. Set up structure for package building directory.   
 The structure of the directory where the package is built is crtical for it to work.  
 
 mkdir package-builder                                                        .  
@@ -56,8 +54,7 @@ Build package for the ssa-daemon and copy it to the package repository       .
 fedpkg --release <desired fedora release eg f32, f33,...> local              .  
 sudo cp x86_64/ssa-daemon-1-1.fc29.x86_64.rpm <repository>                   .  
 
-5.
-Update the repo                                                       .  
+5. Update the repo                                                       .  
 sudo createrepo </path/to/repository> (if local, /var/www/html/fedora).   
 
 
