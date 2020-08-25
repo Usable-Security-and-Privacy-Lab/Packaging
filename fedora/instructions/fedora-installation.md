@@ -10,7 +10,7 @@ cp Packaging/ssa.repo  /etc/yum.repos.d/.
 
 You can verify that this worked by running.    
 sudo dnf list available | grep ssa-daemon.    
-ssa-daemon should be listed.    
+A package named ssa-daemon should be listed.    
 
 ## Install daemon
 sudo dnf install ssa-daemon.     
