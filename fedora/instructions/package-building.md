@@ -44,12 +44,11 @@ cd ../..
 git clone https://github.com/Usable-Security-and-Privacy-Lab/Packaging.git   .    
 cp Packaging/fedora/spec/ssa-daemon.spec ./                                  .  
 rm -r Packaging                                                              .   
-5.
-Build package for the ssa-daemon and copy it to the package repository       .    
+5. Build package for the ssa-daemon and copy it to the package repository       .    
 fedpkg --release <desired fedora release eg f32, f33,...> local              .  
 sudo cp x86_64/ssa-daemon-1-1.fc29.x86_64.rpm <repository>                   .  
 
-5. Update the repo                                                       .  
+6. Update the repo                                                       .  
 sudo createrepo </path/to/repository> (if local, /var/www/html/fedora).   
 
 
