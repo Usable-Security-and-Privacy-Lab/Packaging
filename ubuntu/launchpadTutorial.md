@@ -56,27 +56,27 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
     - There are some fields that you will need to fill in for the copyright, ssadaemon-0.22/debian has an example of how to do the copyright file.
     - The control file:
         - `Source: ssadaemon` this is the name that is used when using sudo apt install(I think, I need to test this.)
-	- `Section: utils` this is the classification of the project, this is a utility package.
-	- `Priority: optional` since it is not a security patch per say, it would be considered optional.
-	- `Maintainter: internet research lab <internetresearchlab@internet.byu.edu>` this is the lab information for our ubuntu account, and the lab would be the maintainer of the project.
-	- `Build-Depends: debhelper, libavachi-client-dev,...valgrind` these are the dependencies for the project, you may need to specify the version of some software like debhelper in the compat file.
-	- `Homepage: https://github.com/Usable-Security-and-Privacy-Lab/ssa-daemon` this is a URL to our online repo.
-	- `Package: ssadaemon` 
-	- `Architecture: any`
-	- `Depends:  ${shlibs:Depends}, ${misc:Depends}` We left these as their default configuration.
-	- `Description: ssa-daemon to be used with the SSA` This is a short description of the package.
-	  		`For more info, see docs in github repository` this is where a longer description of the project can go, the indentation is important to have.
-	- You might be able to specify the dependencies like this `Build-Depends: debhelper-compat (= 12), vim (>= 7.1), xml-twig-tools (>= 3.3), imagemagick (>= 6.3)` but we couldn't get it working like that at the time.
+        - `Section: utils` this is the classification of the project, this is a utility package.
+        - `Priority: optional` since it is not a security patch per say, it would be considered optional.
+        - `Maintainter: internet research lab <internetresearchlab@internet.byu.edu>` this is the lab information for our ubuntu account, and the lab would be the maintainer of the project.
+        - `Build-Depends: debhelper, libavachi-client-dev,...valgrind` these are the dependencies for the project, you may need to specify the version of some software like debhelper in the compat file.
+        - `Homepage: https://github.com/Usable-Security-and-Privacy-Lab/ssa-daemon` this is a URL to our online repo.
+        - `Package: ssadaemon` 
+        - `Architecture: any`
+        - `Depends:  ${shlibs:Depends}, ${misc:Depends}` We left these as their default configuration.
+        - `Description: ssa-daemon to be used with the SSA` This is a short description of the package.
+        `For more info, see docs in github repository` this is where a longer description of the project can go, this line should be indented 1 tab more than the line above it.
+        - You might be able to specify the dependencies like this `Build-Depends: debhelper-compat (= 12), vim (>= 7.1), xml-twig-tools (>= 3.3), imagemagick (>= 6.3)` but we couldn't get it working like that at the time.
     - There are various scripts you can write to create files/directories and do other tasks to prep the install/uninstall environment, we used install, preinst, prerm, postinst
     - The rules file is how the project is built on the Ubuntu servers. dh $@ is the default command, if you need to do something different, you can override that particular section.
     Here is an example:
     `#!/usr/bin/make -f`
     `VERSION=0.16`
     `%:`
-        `dh $@`
+        `dh $@` this line should be indented by one tab
     `override_auto_install:`
-	`mkdir -p /usr/src/ssa-daemon`
-	`dh_install`
+	`mkdir -p /usr/src/ssa-daemon` this line should be indented by one tab
+	`dh_install` this line should be indented by one tab
     - After the debian files are changed and ready to go, you need to try building the package with `bzr builddeb -- -B` for a binary package or `bzr builddeb -S` for a source code only package.
     we used the binary package for the ssa-daemon. These commands need to be run in the debian parent directory.
     - If the package builds successfully, you can try testing the .deb package before pushing it to Launchpad by executing `sudo dpkg -i ~/ppasrc/ssadaemon_"$1"_amd64.deb` where "$1" is the version of the package you want to install.
