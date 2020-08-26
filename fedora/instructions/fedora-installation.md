@@ -17,7 +17,7 @@ sudo dnf install ssa-daemon.
 
 Note that the scriptlet after the Installation will take longer, this is because it is setting up the kernel module.   
 If you aren't using the latest kernel, try sudo dnf install kernel-devel-`uname -r` to install software necessary to set up the kernel. 
-If you need to do this, remove and reinstall the daemon.
+If you need to do this, remove and reinstall the daemon.  
  Verify daemon is running with following.   
  systemctl status ssa-daemon.service.    
  You should get a message that says that the daemon is active and running. 
