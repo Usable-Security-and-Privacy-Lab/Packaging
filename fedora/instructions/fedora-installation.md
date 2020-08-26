@@ -13,7 +13,8 @@ sudo dnf list available | grep ssa-daemon.
 A package named ssa-daemon should be listed.    
 
 ## Install daemon
-sudo dnf install ssa-daemon.     
+sudo dnf install ssa-daemon.   
+Note that the scriptlet after the Installation will take longer, this is because it is setting up the kernel module.   
  Verify daemon is running with following.   
  systemctl status ssa-daemon.service.    
  You should get a message that says that the daemon is active and running. 
