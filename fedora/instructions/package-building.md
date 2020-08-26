@@ -84,4 +84,5 @@ General overview of writing Fedora packages   .
 https://docs.fedoraproject.org/en-US/quick-docs/creating-rpm-packages/ .  
 Here is a guide on working with kernel modules in fedora   .  
 https://docs.fedoraproject.org/en-US/fedora/rawhide/system-administrators-guide/kernel-module-driver-configuration/Working_with_Kernel_Modules/
-
+How to find your IP address. 
+https://www.techwalla.com/articles/how-to-find-an-ip-address-in-fedora.  
