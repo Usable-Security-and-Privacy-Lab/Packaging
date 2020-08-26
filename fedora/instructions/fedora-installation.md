@@ -25,8 +25,6 @@ sudo systemctl stop ssa-daemon.service.
 
 # Resources
 
-How to find your IP address. 
-https://www.techwalla.com/articles/how-to-find-an-ip-address-in-fedora.  
 If this guide doesn't work for you, try looking up instructions for your specific fedora distribution.  
 Also make sure make and other dependencies to compile programs are installed on system.   
- for example, sudo yum install dnf, sudo yum install git, sudo yum install make.   
+ for example, sudo yum install dnf, sudo yum install git.   
