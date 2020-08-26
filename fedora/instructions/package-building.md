@@ -19,7 +19,8 @@ sudo rm -f /etc/modules-load.d/ssa.conf .
 
 2. How to create repository to store packages(rpm files) 
 yum install createrepo httpd                 .  
-mkdir -p /var/www/html/fedora                .  
+mkdir -p /var/www/html/fedora                .
+Move .rpm files that you want to be available into the folder.   
 sudo createrepo /var/www/html/fedora/        .  
 systemctl enable httpd.service               .   
 systemctl start httpd.service                .  
