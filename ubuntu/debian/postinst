@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e 
-if cd ssa; then git pull; else git clone https://github.com/Usable-Security-and-Privacy-Lab/ssa.git; fi
-cd ssa
+if cd ssa/ssa-1.0; then git pull; else git clone https://github.com/Usable-Security-and-Privacy-Lab/ssa.git; fi
+cd ssa-1.0/src
 make 
 sudo cp ssa.ko /lib/modules/`uname -r`
 sudo depmod -a
@@ -13,7 +13,10 @@ sudo sh -c "printf \"[Unit]\nAfter=network-online.target\n\n[Service]\nExecStart
 sudo systemctl daemon-reload
 sudo systemctl enable ssa-daemon.service
 sudo systemctl start ssa-daemon.service
+#DKMS support
+sudo dkms add -m ssa -v 1.0
+sudo dkms build -m ssa -v 1.0 && sudo dkms install -m ssa -v 1.0 || true
 #Cleanup(do last)
-sudo rm -r ssa
+# sudo rm -r ssa # moved to prerm for DKMS support.
 #DEBHELPER#
 exit 0

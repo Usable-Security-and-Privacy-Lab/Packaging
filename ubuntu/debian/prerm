@@ -5,25 +5,39 @@ then
 sudo rm /lib/modules/`uname -r`/ssa.ko
 
 fi
+
 sudo modprobe -r ssa
 
 if [ -f /lib/modules/`uname -r`/ssa.ko ]
 then
 sudo rm /lib/modules/`uname -r`/ssa.ko
 fi
+
 if [ -f /etc/modules-load.d/ssa.conf ]
 then
 sudo rm -f /etc/modules-load.d/ssa.conf 
 fi
+
 if [ -d /usr/src/ssa-daemon ]
 then
 sudo rm -r /usr/src/ssa-daemon
 fi
+
+sudo dkms remove -m ssa -v 1.0 --all || true
+
+if [ -d /usr/src/ssa ]
+then
+sudo rm -r /usr/src/ssa
+fi
+
 if sudo systemctl status ssa-daemon.service | grep active; then sudo systemctl stop ssa-daemon.service; fi
+
 if sudo systemctl status ssa-daemon.service | grep inactive; then sudo systemctl disable ssa-daemon.service; fi
+
 if [ -f /etc/systemd/system/ssa-daemon.service ]
 then
 sudo rm -f /etc/systemd/system/ssa-daemon.service        
 fi
+
 #DEBHELPER#
 exit 0
