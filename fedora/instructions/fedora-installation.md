@@ -13,7 +13,11 @@ sudo dnf list available | grep ssa-daemon.
 A package named ssa-daemon should be listed.    
 
 ## Install daemon
-sudo dnf install ssa-daemon.     
+sudo dnf install ssa-daemon.   
+
+Note that the scriptlet after the Installation will take longer, this is because it is setting up the kernel module.   
+If you aren't using the latest kernel, try sudo dnf install kernel-devel-\`uname -r\` to install software necessary to set up the kernel. 
+If you need to do this, remove and reinstall the daemon.  
  Verify daemon is running with following.   
  systemctl status ssa-daemon.service.    
  You should get a message that says that the daemon is active and running. 
@@ -25,8 +29,6 @@ sudo systemctl stop ssa-daemon.service.
 
 # Resources
 
-How to find your IP address. 
-https://www.techwalla.com/articles/how-to-find-an-ip-address-in-fedora.  
 If this guide doesn't work for you, try looking up instructions for your specific fedora distribution.  
 Also make sure make and other dependencies to compile programs are installed on system.   
- for example, sudo yum install dnf, sudo yum install git, sudo yum install make.   
+ for example, sudo yum install dnf, sudo yum install git.   

@@ -91,7 +91,11 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
         - newdaemon takes a version number and creates a new package for you, it also sets up some of the debian folder for you as well.
     - Once the package has been pushed to launchpad, you will get an email informing you if it was accepted/rejected and once the build has been published, you can run:
     `sudo add-apt-repository ppa:byu-ilab/ssa-daemon; sudo apt-get update` to add the repo to apt and then run `sudo apt install ssadaemon` to install the latest version of the software.
-    
+
+## Multiple Distro support
+
+- If you want to use the same source for multiple distros, you can follow the steps on [this](https://askubuntu.com/questions/30145/ppa-packaging-having-versions-of-packages-for-multiple-distros) askubuntu question.
+
 ## Other tutorials
 
 <https://packaging.ubuntu.com/html/debian-dir-overview.html> explains about packaging files.
