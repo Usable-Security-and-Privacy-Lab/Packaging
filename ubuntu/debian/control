@@ -2,7 +2,7 @@ Source: ssadaemon
 Section: utils
 Priority: optional
 Maintainer: internet research lab <internetresearchlab@internet.byu.edu>
-Build-Depends: debhelper, libavahi-client-dev, libconfig-dev, libelf-dev, libevent-dev, libglib2.0-dev, libnl-3-dev, libnl-genl-3-dev, libnotify-dev, linux-headers-5.4.0-42-generic, openssl, qrencode, libyaml-dev, libssl-dev, libgtest-dev, valgrind
+Build-Depends: debhelper, dkms, libavahi-client-dev, libconfig-dev, libelf-dev, libevent-dev, libglib2.0-dev, libnl-3-dev, libnl-genl-3-dev, libnotify-dev, linux-headers-5.4.0-42-generic, openssl, qrencode, libyaml-dev, libssl-dev, libgtest-dev, valgrind
 Standards-Version: 4.4.1
 Homepage: https://github.com/Usable-Security-and-Privacy-Lab/ssa-daemon
 #Vcs-Browser: https://salsa.debian.org/debian/ssadaemon
