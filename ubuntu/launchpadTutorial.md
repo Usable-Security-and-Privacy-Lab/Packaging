@@ -68,6 +68,9 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
         `For more info, see docs in github repository` this is where a longer description of the project can go, this line should be indented 1 tab more than the line above it.
         - You might be able to specify the dependencies like this `Build-Depends: debhelper-compat (= 12), vim (>= 7.1), xml-twig-tools (>= 3.3), imagemagick (>= 6.3)` but we couldn't get it working like that at the time.
     - There are various scripts you can write to create files/directories and do other tasks to prep the install/uninstall environment, we used install, preinst, prerm, postinst
+        - The install file includes files that you need included in the package, one obvious one would be config files, another would be binaries.
+	  The files will need to be included for bzr to find them, so you must run `bzr add config.yml` or `bzr add ssa_daemon` to include those files.
+	  Each line of the file should look something like this `fileName /path/to/desired/installation`. The first line in our install file looks like: `ssa_daemon /usr/src/ssa-daemon`
     - The rules file is how the project is built on the Ubuntu servers. dh $@ is the default command, if you need to do something different, you can override that particular section.
     Here is an example:
     `#!/usr/bin/make -f`
