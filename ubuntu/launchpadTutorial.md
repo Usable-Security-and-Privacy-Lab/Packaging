@@ -48,8 +48,8 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
 
 ## Project packaging
 
-- When working on a package, you will want to make sure you have the newest version of the project from github by pulling from master, then you will copy the source to a new directory.
-    - once you are in the new directory with the copies source files, run `dh_make --single --native --email internetresearchlab@internet.byu.edu` (Or on the Ubuntu lab machine, `makedh`)
+- When working on a package, you will want to make sure you have the newest version of the project from github by pulling from master, then you will copy the source to a new directory. The directory should represent the file structure you want to have on the target machine. If you want to install the source files in the /usr/src/YourDirectory directory, you would need to create that structure in the new directory. It would look something like ssadaemon-0.56/usr/src/ssa-1.0  where ssa-1.0 would hold all of the source files required to build the ssa kernel module.
+    - once you are in the new directory with the copied source files, run `dh_make --single --native --email internetresearchlab@internet.byu.edu` (Or on the Ubuntu lab machine, `makedh`)
     - Then `cd` into the debian folder, and remove any files that you don't need. For a simple package, just run `rm *.ex; rm *.EX; rm README.source`
     - You will need to edit the changelog to say `softwareName (version) release; urgency=level` then after the * enter the notes for the release.
     Eg: `ssadaemon (0.12) focal; urgency=low` The software would be the ssadaemon, the version would be version 0.12, the release would be focal, and the urgency would be low. the parenthesis are important for the version.
@@ -98,8 +98,11 @@ the pgp key name and email are: internet research lab <internetresearchlab@inter
 
 ## Other tutorials
 
+This is the best tutorial I found, it was simple, clear and easy to follow.
+<http://www.forshee.me/2012/03/16/introduction-to-creating-dkms-packages.html>
+
 <https://packaging.ubuntu.com/html/debian-dir-overview.html> explains about packaging files.
 This is how to have multiple dependencies:
 
 
-This might be a better tutorial to follow: <https://www.ebower.com/docs/ubuntu-ppa/>
+This is probably the second best to follow: <https://www.ebower.com/docs/ubuntu-ppa/>
